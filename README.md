@@ -16,20 +16,22 @@ A solution for evaluating the quality of the markup of AI models on medical radi
 - catboost library
 - json library
 - Update all libraries using "!pip instal --upgrade *name_of_library*" 
+- Some software to open *.ipynb* files 
 
 
 ## Usage:
-1. Download weights for models from [our google drive](https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing) and put them to */weights* directory.
+1. Download weights for models from [our google drive](https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing) and put them to */weights* directory
 1.1 If you want to make predictions on new dataset, rebuild dataset(See *Rebuild dataset* section how to do this)
 2. Run multimodel.py
 
 
 ## Rebuild dataset: 
-0. Open *dataset_generation.ipynb*
-1. Load csv file to data directory with markups
-2. Use function prepare_data.build_dataset(path_to_csv_file) to extract features
-3. Save csv in data directory
-4. Add path to csv with features in settings.py
+1. Upload expert's markup images to the directory */Dataset/Expert*, AI's markup — copy it to */Dataset/sample_1* and */Dataset/sample_2* and *Dataset/sample_3*. Names of images should have format: *someNumber_expert.png* for expert's markup and *somenumber_s1.png*, *somenumber_s2.png*, *somenumber_s3.png* for AI's markup. Note that *somenumber_s...* is the same AI's markup.
+2. Open *notebooks/dataset_generation.ipynb*
+3. Change in section *Import data*, line `data = pd.read_csv("DX_TEST_RESULT_FULL.csv")` **path with path to your csv** file with locations and sizes of markups
+4. Delete code marked as *ONLY FOR GOOGLE COLAB*
+5. Run all code in notebook
+6. Your new csv dataset will be saved in */notebooks* directory as *wo_aug.csv*.
 
 
 ## Data augmentation
