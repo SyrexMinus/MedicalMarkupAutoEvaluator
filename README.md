@@ -1,7 +1,35 @@
 # MedicalMarkupAutoEvaluator
 A solution for evaluating the quality of the markup of AI models on medical radiograms.
 
+
 Weights for models: https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing (you need to put it to `/weights`)
+
+
+## Requirements:
+- Python 3.6
+- pip 19.2.3
+- Tensorflow library
+- pandas library
+- lightgbm library
+- sklearn library
+- numpy library
+- datetime library
+- opencv-python (cv2) library
+- keras library
+- catboost library
+- json library
+
+## Usage:
+0. If you want to make predictions on new dataset, rebuild dataset(See below how to do this)
+1. Run multimodel.py
+
+
+## To rebuild dataset:
+1. Load csv file to data directory with markups
+2. Use function prepare_data.build_dataset(path_to_csv_file) to extract features
+3. Save csv in data directory
+4. Add path to csv with features in settings.py
+
 
 ## Data augmentation
 The algorithm applies the same random affine changes to each i-th image in each subfolder in the dataset folder and save new images as PNG files in augmented dataset folder.
