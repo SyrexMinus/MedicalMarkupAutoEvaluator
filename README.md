@@ -1,12 +1,9 @@
 # MedicalMarkupAutoEvaluator
-A solution for evaluating the quality of the markup of AI models on medical radiograms.
-
-
-Weights for models: https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing (you need to put it to `/weights`)
+A solution for evaluating the quality of the markup of AI models on medical radiograms. It uses ansemble of LGBM, CatBoost of features extracted by VGG-16 net, SVM, XGBoost models, which analyse features extracted from coordinates/sizes and pictures of markups. 
 
 
 ## Requirements:
-- Python 3.6
+- Python 3.7
 - pip 19.2.3
 - Tensorflow library
 - pandas library
@@ -18,13 +15,17 @@ Weights for models: https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTT
 - keras library
 - catboost library
 - json library
+- Update all libraries using "!pip instal --upgrade *name_of_library*" 
+
 
 ## Usage:
-0. If you want to make predictions on new dataset, rebuild dataset(See below how to do this)
-1. Run multimodel.py
+1. Download weights for models from [our google drive](https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing) and put them to */weights* directory.
+1.1 If you want to make predictions on new dataset, rebuild dataset(See *Rebuild dataset* section how to do this)
+2. Run multimodel.py
 
 
-## To rebuild dataset:
+## Rebuild dataset: 
+0. Open *dataset_generation.ipynb*
 1. Load csv file to data directory with markups
 2. Use function prepare_data.build_dataset(path_to_csv_file) to extract features
 3. Save csv in data directory
