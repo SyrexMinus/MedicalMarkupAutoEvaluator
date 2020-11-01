@@ -1,6 +1,8 @@
 # MedicalMarkupAutoEvaluator
 A solution for evaluating the quality of the markup of AI models on medical radiograms.
 
+Weights for models: https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing (you need to put it to `/weights`)
+
 ## Data augmentation
 The algorithm applies the same random affine changes to each i-th image in each subfolder in the dataset folder and save new images as PNG files in augmented dataset folder.
 
