@@ -23,9 +23,14 @@ Solution uses ansemble of LGBM, CatBoost of features extracted by VGG-16 net, SV
 
 
 ## Usage:
+### Native: 
 1. Download weights for models from [our google drive](https://drive.google.com/drive/folders/1o0vahEkKFOw3A060YHTTWaDf7nxRcWjy?usp=sharing) and put them to */weights* directory
 1.1 If you want to make predictions on new dataset, rebuild dataset(See *Rebuild dataset* section how to do this)
 2. Run multimodel.py
+### Docker:
+1. Download and build [continer](https://drive.google.com/file/d/1ptw-AFTEXtRSuig0Y-5RYaAPC_24k8hB/view?usp=sharing)  
+`docker build . -t MedicalMarkupAutoEvaluator`
+2. Run the container
 
 
 ## Rebuild dataset: 
