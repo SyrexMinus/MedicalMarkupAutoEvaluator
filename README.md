@@ -1,5 +1,8 @@
 # MedicalMarkupAutoEvaluator
-A solution for evaluating the quality of the markup of AI models on medical radiograms. It uses ansemble of LGBM, CatBoost of features extracted by VGG-16 net, SVM, XGBoost models, which analyse features extracted from coordinates/sizes and pictures of markups. 
+A solution for evaluating the quality of the markup of AI models on medical radiograms. It compares two markups: expert's and AI's and based on this Evaluator give mark from 1 to 5 — quality of recognition of pathologies.
+
+
+Solution uses ansemble of LGBM, CatBoost of features extracted by VGG-16 net, SVM, XGBoost models, which analyse features extracted from coordinates/sizes and pictures of markups. 
 
 
 ## Requirements:
@@ -32,6 +35,20 @@ A solution for evaluating the quality of the markup of AI models on medical radi
 4. Delete code marked as *ONLY FOR GOOGLE COLAB*
 5. Run all code in notebook
 6. Your new csv dataset will be saved in */notebooks* directory as *wo_aug.csv*.
+
+
+## Metrics tuning
+Contribution ratio of every submodel in prediction of Evaluation model can be changed in *settings.py* via parameters `k1`, `k2`, `k3` and `k4`.
+- A decrease in the value of the coefficient for a model means that the result of the prediction of this model will give a smaller, possibly even negative, contribution to the response of the system as a whole. 
+- The increase of coefficient works the other way around.
+
+
+| Coefficient | Corresponding submodel |
+|---|---|
+| `k1` | SVM |
+| `k2` | CatBoost + VGG16 |
+| `k3` | LGBM |
+| `k4` | XGBoost |
 
 
 ## Data augmentation
